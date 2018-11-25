@@ -1,0 +1,26 @@
+#include<iostream>
+#include<stdio.h>
+using namespace std;
+int main(int argcount,char** argstring){
+	
+	FILE *f1,*f2;
+	int pos;
+	char ch;
+	if((f1=fopen(argstring[1],"r")) == NULL)
+	{
+		cout<<"\n Cannot open source file"<<endl;
+		return 0;
+	}
+	f2=fopen(argstring[2],"w");
+	fseek(f1,0L,SEEK_END);
+	pos=ftell(f1);
+	fseek(f1,0L,SEEK_SET);
+	while(pos--)
+	{
+		ch=getc(f1);
+		fputc(ch,f2);
+	}
+	fcloseall();
+	cout<<"File Copy Completed !!!";
+	return 0;
+}
