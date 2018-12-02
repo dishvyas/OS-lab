@@ -1,0 +1,7 @@
+ls | grep -o "\bt\w*" demop.txt;
+ls | grep -o "\bt\w*t\b" demop.txt;
+
+ls | grep -o "kernel" demop.txt | wc -l
+
+grep -o "\b\w*[0-9]\b" demop.txt|paste -sd+ |bc
+find *.c | xargs gcc -o
